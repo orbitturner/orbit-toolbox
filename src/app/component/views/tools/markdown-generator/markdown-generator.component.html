@@ -8,7 +8,7 @@
                         <h3 class="card-label">⚙️ Configure & Convert !</h3>
                     </div>
                     <div class="card-toolbar">
-                        <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary draggable-handle">
+                        <a href="javascript:void(0);" class="btn btn-icon btn-sm btn-hover-light-primary draggable-handle">
                             <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
                             <span class="svg-icon svg-icon-2x">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -107,7 +107,10 @@
                         <h3 class="card-label">✅ Result Box</h3>
                     </div>
                     <div class="card-toolbar">
-                        <a href="#" class="btn btn-icon btn-hover-light-primary draggable-handle">
+                        <button class="btn btn-light-success font-weight-bolder btn-sm me-3" (click)="doCopy()">
+                            <i class="bi bi-clipboard-heart"></i> COPY
+                        </button>
+                        <a href="javascript:void(0);" class="btn btn-icon btn-hover-light-primary draggable-handle">
                             <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
                             <span class="svg-icon svg-icon-2x">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -124,8 +127,10 @@
                         </a>
                     </div>
                 </div>
-                <div class="card-body text-muted bg-secondary">
-                    {{valueContent}}
+                <div class="card-body text-muted bg-secondary overflow-scroll" (dblclick)="doCopy()" style="height: 350px;">
+                    <pre>
+                        {{valueContent}}
+                    </pre>
                 </div>
             </div>
             <!--end::Card-->

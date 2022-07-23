@@ -6,6 +6,45 @@
 /* ================================ NGX TOASTR ================================ */
 @import '~ngx-toastr/toastr';
 /*================================ ================================ ===================*/
+
+/* ================================GRADIENT SCROLLBAR SLIM================================ */
+body::-webkit-scrollbar {
+    width: 8px !important;
+    height: 6px;              /* height of horizontal scrollbar ← You're missing this */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background:  linear-gradient(0deg, rgba(255, 81, 91, 1) 0%, rgba(54, 123, 163, 1) 100%) !important;
+  }
+  
+  body::-webkit-scrollbar-track:horizontal {
+    background:  radial-gradient(rgba(255, 81, 91, 1), rgba(54, 123, 163, 1)50%) !important;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    border-radius: 10px !important;
+    background: transparent !important;
+    box-shadow: 0px 0px 0px 100000vh black !important;
+  }
+  body::-webkit-scrollbar-thumb:horizontal {
+    box-shadow: 0px 0px 0px 0.5vh #fff !important;
+  }
+  /* FIXING BUG WITH SCROLL BARS IN SELECTS */
+  .select2-results__options {
+    position: relative;
+  }
+  ::selection {
+    color: #6ec6ff;
+    background-color: #1d1d1d;
+  }
+  
+  /* for firefox */
+  ::-moz-selection {
+    color: #6ec6ff;
+    background-color: #1d1d1d;
+  }
+  /* ================================================================ */
+/*================================ ================================ ===================*/
 #js-licensing {
     display: none;
 }

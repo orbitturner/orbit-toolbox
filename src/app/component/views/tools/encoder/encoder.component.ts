@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrbitEncoder } from 'orbit-encoder/lib/OrbitEncoder';
 import { EncodeTypes } from 'src/app/entities/entities';
 import { ToastHelper } from 'src/app/helpers/toastr/toastHelper';
+import { UtilsHelper } from 'src/app/helpers/utils/utils.helper';
 
 
 @Component({
@@ -12,11 +13,12 @@ import { ToastHelper } from 'src/app/helpers/toastr/toastHelper';
 })
 export class EncoderComponent implements OnInit {
   // =============================
-  constructor(private notify: ToastHelper) { }
+  constructor(private notify: ToastHelper,private utilsHelper: UtilsHelper) { }
   // =============================
   public typeEncoder = Object.values(EncodeTypes);
   public typeObject= ['String', 'Array', 'Number', 'JSON', 'Any'];
   // =============================
+  private typeSelectPlaceholder = `Choisissez un Type d'Encodage...`;
   public selectedType: string = `Choisissez un Type d'Encodage...`;
   public selectedObject: string = `Choose the Object Type...`;
   // =============================
@@ -39,7 +41,7 @@ export class EncoderComponent implements OnInit {
   // ==========================================================
   public submit(): void {
     const type : EncodeTypes | string = this.selectedType;
-    if (type === `Choisissez un Type d'Encodage...`) {
+    if (type === this.typeSelectPlaceholder || type === '' || !type) {
       return this.notify.toastError('Choose a valid Encode Type/Format', 'Invalid Parameters');
     }
     let tobeEncoded: any;
@@ -66,6 +68,13 @@ export class EncoderComponent implements OnInit {
   
   public reset() {
     this.valueContent = '';
+    this. selectedType = this.typeSelectPlaceholder;
     this.encodedString = `You will see the encoded string here...`;
+  }
+  // ==========================================================
+  // ******************* TRIGGERS *******************
+  // ==========================================================
+  public doCopy() {
+    this.utilsHelper.copyToClipboard(this.encodedString);
   }
 }

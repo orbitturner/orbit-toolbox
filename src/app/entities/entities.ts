@@ -15,7 +15,8 @@ export interface TabConfig {
     value: string[];
   }
 
-export const defaultMarkup = `![HtmlEditor](https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/widgets/HtmlEditor.svg) Formatted Text Editor (HTML Editor)
+export const defaultMarkup = `
+![HtmlEditor](https://github.com/orbitturner/challenger/blob/master/images/OrbitTurner_Gaming_GitHubBadge.png?raw=true) Formatted Text Editor (HTML Editor)
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 Orbit Markdown Generator is a client-side WYSIWYG text editor that allows its users to format textual and visual content and store it as HTML or Markdown.
@@ -39,7 +40,15 @@ Supported features:
 *   Copy-paste rich content (unsupported formats are removed)
 *   Tables support
 
-Supported frameworks and libraries
+<img width="auto"
+ src="https://raw.githubusercontent.com/orbitturner/orbitturner/output/github-contribution-grid-snake.svg"
+/>
 
-<table><tbody><tr><td><p><strong>jQuery</strong></p></td><td><p style="text-align: right;">v2.1 - v2.2 and v3.x</p></td></tr><tr><td><p><strong>Angular</strong></p></td><td><p style="text-align: right;">v7.0.x - v10.0.x</p></td></tr><tr><td><p><strong>React</strong></p></td><td><p style="text-align: right;">v16.2+</p></td></tr><tr><td><p><strong>Vue</strong></p></td><td><p style="text-align: right;">v2.6.3+</p></td></tr></tbody></table>
+<p align="center">
+<img width="auto"
+ src="https://metrics.lecoq.io/orbitturner?template=classic&achievements=1&achievements.threshold=C&achievements.secrets=true&achievements.display=detailed&achievements.limit=0&config.timezone=UTC"
+/>
+</p>
+
+🚀 Contribute to the App !
 `;

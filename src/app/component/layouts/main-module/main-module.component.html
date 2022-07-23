@@ -74,7 +74,7 @@
 					<!--end::Heading-->
 
 					<!--begin::Purchase-->
-					<a href="https://1.envato.market/EA4JP" class="btn btn-primary fw-bold mb-15 w-100">View My
+					<a href="https://github.com/orbitturner" class="btn btn-primary fw-bold mb-15 w-100">View My
 						Github</a>
 					<!--end::Purchase-->
 					<!--begin::Demos-->
@@ -428,21 +428,40 @@
 <!--end::Help drawer-->
 <!--end::Engage drawers-->
 <!--begin::Engage toolbar-->
-<div class="engage-toolbar d-flex position-fixed px-5 fw-bold zindex-2 top-50 end-0 transform-90 mt-5 mt-lg-20 gap-2">
-	<!--begin::Demos drawer toggle-->
+<div class="engage-toolbar d-flex position-fixed px-5 fw-bold zindex-2 top-75 end-0 transform-90 mt-5 mt-lg-20 gap-2">
+	<!--begin::Projects drawer toggle-->
 	<button id="kt_engage_demos_toggle"
 		class="engage-demos-toggle btn btn-flex h-35px bg-body btn-color-gray-700 btn-active-color-gray-900 shadow-sm fs-6 px-4 rounded-top-0"
-		title="Check out 22 more Projects" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click"
+		title="Check out more Projects on my Portfolio" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click"
 		data-bs-trigger="hover">
 		<span id="kt_engage_demos_label">Projects</span>
 	</button>
-	<!--end::Demos drawer toggle-->
+	<!--end::Projects drawer toggle-->
 	<!--begin::Help drawer toggle-->
 	<button id="kt_help_toggle"
 		class="engage-help-toggle btn btn-flex h-35px bg-body btn-color-gray-700 btn-active-color-gray-900 shadow-sm px-5 rounded-top-0"
-		title="Learn &amp; Get Inspired" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click"
-		data-bs-trigger="hover">Help</button>
+		title="Get some help by the community" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click"
+		data-bs-trigger="hover">Help
+	</button>
 	<!--end::Help drawer toggle-->
+	<!--begin::Fullscreen drawer toggle-->
+	<button id="fullScreen_Toggle" [class.active]="isFullScreen" (click)="toggleFullScreen()"
+		class="btn btn-flex h-35px bg-body btn-color-gray-700 btn-active-color-gray-900 shadow-sm px-5 rounded-top-0"
+		title="Toggle Fullscreen Mode" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click"
+		data-bs-trigger="hover">
+		<i class="fas fa-expand-arrows-alt fs-2"  *ngIf="!isFullScreen"></i>
+		<i class="fas fa-compress-alt fs-2" *ngIf="isFullScreen"></i>Fullscreen
+	</button>
+	<!--end::Fullscreen drawer toggle-->
+	<!--begin::ThemeMode drawer toggle-->
+	<button id="ThemeMode_Toggle" (click)="switchUIThemeMode()"
+		class="btn btn-flex h-35px bg-body btn-color-gray-700 btn-active-color-gray-900 shadow-sm px-5 rounded-top-0"
+		title="Toggle {{oppositeThemeName}} Mode" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-dismiss="click"
+		data-bs-trigger="hover">
+		<i class="fonticon-sun fs-2" *ngIf="(currentThemeMode === 'dark')"></i>
+        <i class="fonticon-moon fs-2" *ngIf="(currentThemeMode === 'light')"></i>{{oppositeThemeName}} Mode
+	</button>
+	<!--end::ThemeMode drawer toggle-->
 </div>
 <!--end::Engage toolbar-->
 <!--begin::Scrolltop-->

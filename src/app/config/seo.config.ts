@@ -1,7 +1,7 @@
 
 // ------------------------------- *** -------------------------------
 export const PageTitles = {
-    MAINTITLE: '🗜️ ORBIT TOOLBOX 💻',
+    MAINTITLE: 'ORBIT TOOLBOX 💻',
     SEPARATOR: '➤',
     // APP PAGES / VIEWS
     HOME: 'HOME',

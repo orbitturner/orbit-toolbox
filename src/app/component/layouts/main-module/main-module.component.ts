@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { AppConfig } from 'src/app/config/app.config';
+import { UtilsHelper } from 'src/app/helpers/utils/utils.helper';
 
 @Component({
   selector: 'app-main-module',
@@ -18,10 +21,85 @@ export class MainModuleComponent implements OnInit {
 
   ];
   // =============================
+  public isFullScreen: boolean = false;
+  public elem: any; 
+  // =============================
+  public currentThemeMode = localStorage.getItem(AppConfig.THEME_LS_Key);
+  public oppositeThemeName = this.currentThemeMode === 'dark' ? 'light' : 'dark';
+  // =============================
 
-  constructor() { }
+  constructor(@Inject(DOCUMENT) private document: any) { }
 
+  // ----------------------------
   ngOnInit(): void {
+    this.chkScreenMode();
+    this.elem = document.documentElement;
   }
-
+  // ----------------------------
+    // =================================================
+    @HostListener('document:fullscreenchange', ['$event'])
+    @HostListener('document:webkitfullscreenchange', ['$event'])
+    @HostListener('document:mozfullscreenchange', ['$event'])
+    @HostListener('document:MSFullscreenChange', ['$event'])
+    public fullscreenmodes(event: any) {
+      this.chkScreenMode();
+    }
+    // =================================================
+  // ----------------------------
+  public switchUIThemeMode() {
+    const theme = localStorage.getItem(AppConfig.THEME_LS_Key) === 'dark' ? 'light' : 'dark';
+    localStorage.setItem(AppConfig.THEME_LS_Key, theme);
+    return UtilsHelper.reloadPage();
+  }
+  // ----------------------------
+  public toggleFullScreen() {
+    if (this.isFullScreen) {
+      return this.closeFullscreen();;
+    }
+    return this.openFullscreen();
+  }
+  // ----------------------------
+  public chkScreenMode() {
+    if (document.fullscreenElement) {
+      //fullscreen
+      this.isFullScreen = true;
+    } else {
+      //not in full screen
+      this.isFullScreen = false;
+    }
+  }
+  // ----------------------------
+  // =================================================
+  public openFullscreen() {
+    if (this.elem.requestFullscreen) {
+      this.elem.requestFullscreen();
+    } else if (this.elem.mozRequestFullScreen) {
+      /* Firefox */
+      this.elem.mozRequestFullScreen();
+    } else if (this.elem.webkitRequestFullscreen) {
+      /* Chrome, Safari and Opera */
+      this.elem.webkitRequestFullscreen();
+    } else if (this.elem.msRequestFullscreen) {
+      /* IE/Edge */
+      this.elem.msRequestFullscreen();
+    }
+  }
+  /* Close fullscreen */
+  public closeFullscreen() {
+    if (this.document.exitFullscreen) {
+      this.document.exitFullscreen();
+    } else if (this.document.mozCancelFullScreen) {
+      /* Firefox */
+      this.document.mozCancelFullScreen();
+    } else if (this.document.webkitExitFullscreen) {
+      /* Chrome, Safari and Opera */
+      this.document.webkitExitFullscreen();
+    } else if (this.document.msExitFullscreen) {
+      /* IE/Edge */
+      this.document.msExitFullscreen();
+    }
+  }
+  // =================================================
+  
+  
 }
