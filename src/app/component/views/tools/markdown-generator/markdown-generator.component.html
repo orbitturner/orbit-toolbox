@@ -1,0 +1,135 @@
+<div class="py-5">
+    <div class="row row-cols-lg-2 g-2 draggable-zone" tabindex="0">
+        <div class="col draggable" tabindex="0">
+            <!--begin::Card-->
+            <div class="card card-bordered">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3 class="card-label">⚙️ Configure & Convert !</h3>
+                    </div>
+                    <div class="card-toolbar">
+                        <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary draggable-handle">
+                            <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
+                            <span class="svg-icon svg-icon-2x">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
+                                        fill="currentColor"></path>
+                                    <path opacity="0.3"
+                                        d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-5">
+                        <dx-html-editor height="325px" [(value)]="valueContent" valueType="markdown">
+                            <dxo-toolbar [multiline]="isMultiline">
+                              <dxi-item name="undo"></dxi-item>
+                              <dxi-item name="redo"></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item
+                                name="size"
+                                [acceptedValues]="['8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt']"
+                              ></dxi-item>
+                              <dxi-item
+                                name="font"
+                                [acceptedValues]="[
+                                  'Arial',
+                                  'Courier New',
+                                  'Georgia',
+                                  'Impact',
+                                  'Lucida Console',
+                                  'Tahoma',
+                                  'Times New Roman',
+                                  'Verdana'
+                                ]"
+                              ></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item name="bold"></dxi-item>
+                              <dxi-item name="italic"></dxi-item>
+                              <dxi-item name="strike"></dxi-item>
+                              <dxi-item name="underline"></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item name="alignLeft"></dxi-item>
+                              <dxi-item name="alignCenter"></dxi-item>
+                              <dxi-item name="alignRight"></dxi-item>
+                              <dxi-item name="alignJustify"></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item name="orderedList"></dxi-item>
+                              <dxi-item name="bulletList"></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item
+                                name="header"
+                                [acceptedValues]="[false, 1, 2, 3, 4, 5]"
+                              ></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item name="color"></dxi-item>
+                              <dxi-item name="background"></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item name="link"></dxi-item>
+                              <dxi-item name="image"></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item name="clear"></dxi-item>
+                              <dxi-item name="codeBlock"></dxi-item>
+                              <dxi-item name="blockquote"></dxi-item>
+                              <dxi-item name="separator"></dxi-item>
+                              <dxi-item name="insertTable"></dxi-item>
+                              <dxi-item name="deleteTable"></dxi-item>
+                              <dxi-item name="insertRowAbove"></dxi-item>
+                              <dxi-item name="insertRowBelow"></dxi-item>
+                              <dxi-item name="deleteRow"></dxi-item>
+                              <dxi-item name="insertColumnLeft"></dxi-item>
+                              <dxi-item name="insertColumnRight"></dxi-item>
+                              <dxi-item name="deleteColumn"></dxi-item>
+                            </dxo-toolbar>
+                            <dxo-media-resizing [enabled]="true"> </dxo-media-resizing>
+                            <dxo-image-upload [tabs]="imageUploadConfig" fileUploadMode="base64">
+                            </dxo-image-upload>
+                          </dx-html-editor>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-center py-6 px-9">
+                    <button class="btn btn-light btn-active-light-primary me-2" (click)="reset()">Reset</button>
+                </div>
+            </div>
+            <!--end::Card-->
+        </div>
+        <div class="col draggable" tabindex="0">
+            <!--begin::Card-->
+            <div class="card card-bordered">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3 class="card-label">✅ Result Box</h3>
+                    </div>
+                    <div class="card-toolbar">
+                        <a href="#" class="btn btn-icon btn-hover-light-primary draggable-handle">
+                            <!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
+                            <span class="svg-icon svg-icon-2x">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z"
+                                        fill="currentColor"></path>
+                                    <path opacity="0.3"
+                                        d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body text-muted bg-secondary">
+                    {{valueContent}}
+                </div>
+            </div>
+            <!--end::Card-->
+        </div>
+
+    </div>
+</div>
