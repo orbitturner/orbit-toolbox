@@ -1,12 +1,12 @@
 {
   "name": "orbit-toolbox",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "start-pwa": "ng build && http-server -p 8080 -c-1 dist/orbit-toolbox",
     "deploy": "(robocopy dist C:\\devReposit\\DEPLOYMENTS /mt /E /is) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
-    "deployOnGithub": "npx gh-pages -d dist/angular-pwa",
+    "deployOnGithub": "npx gh-pages -d dist/orbit-toolbox",
     "prebuild": "npm --no-git-tag-version version patch",
     "build": "ng build & npm run deploy",
     "watch": "ng build --watch --configuration development",
